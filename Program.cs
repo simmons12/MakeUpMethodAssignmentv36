@@ -4,7 +4,7 @@ namespace MakeUpMethodAssignmentv36
 {
     class Program
     {
-        static void CopyCreator(string RandWord)
+        static void CopyCreator(string RandWord, string RandChar)
         {
             string UserInput;
             int Number;
@@ -25,7 +25,7 @@ namespace MakeUpMethodAssignmentv36
             {
                 for (i = 0; i <= Number; i++)
                 {
-                    Console.WriteLine(" " + RandWord);
+                    Console.WriteLine(" " + RandWord + RandChar);
                     
                 }
                                 
@@ -39,13 +39,25 @@ namespace MakeUpMethodAssignmentv36
             
             //Declare word that will be duplicated
             string RandWord;
+            string RandChar;
 
             RandWord = Console.ReadLine();
+                        
+            Console.WriteLine("Choose a single random character");
+
+            RandChar = Console.ReadLine();
+
+            if(RandChar.Length >= 2)
+            {
+                Console.WriteLine(" Error: Your random character cannot be longer than one character. " +
+                    "Please try again.");
+                Environment.Exit(0);
+            }
 
             Console.WriteLine("Now please select an integer from 3 to 6, then hit enter");
-                        
+
             //Call Method
-            CopyCreator(RandWord);
+            CopyCreator(RandWord, RandChar);
 
         }
     }
